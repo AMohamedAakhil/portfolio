@@ -1,11 +1,7 @@
 "use server";
 
-import React from "react";
-import { Resend } from "resend";
 import { validateString, getErrorMessage } from "@/lib/utils";
-import ContactFormEmail from "@/email/contact-form-email";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from 'nodemailer';
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("senderEmail");
@@ -25,16 +21,46 @@ export const sendEmail = async (formData: FormData) => {
 
   let data;
   try {
-    data = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
-      to: "bytegrad@gmail.com",
-      subject: "Message from contact form",
-      reply_to: senderEmail,
-      react: React.createElement(ContactFormEmail, {
-        message: message,
-        senderEmail: senderEmail,
-      }),
-    });
+        const emailSender = 'akhil@timescan.in';
+        const emailPassword = process.env.EMAIL_PASS; 
+        const emailReceiver = "a.aakhilmohamed@gmail.com";
+
+        const subject = "Contact Form Submission from " + senderEmail;
+        const body = message;
+
+        // Create a nodemailer transporter
+        let transporter = nodemailer.createTransport({
+            host: "us3.smtp.mailhostbox.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: emailSender,
+                pass: emailPassword
+            },
+            tls: {
+                ciphers:'SSLv3'
+            }
+        });
+
+        // Define email options
+        let mailOptions = {
+            from: emailSender,
+            to: emailReceiver,
+            subject: subject,
+            text: body
+        };
+
+        // Send the email
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                data = error;
+                console.log('Error occurred: ', error);
+            } else {
+                data = info.response;
+                console.log('Email sent: ', info.response);
+            }
+        });
+
   } catch (error: unknown) {
     return {
       error: getErrorMessage(error),
