@@ -52,7 +52,7 @@ export const experiencesData = [
     description:
       "Worked as a Machine Learning Intern at Brighter India for 4 months. Secured 2nd place at the Brighter India Hackathon, earning an internship opportunity with a stipend of 10k/month.",
     icon: React.createElement(CgWorkAlt),
-    date: "Aug 2023 - Present",
+    date: "Aug 2023 - Jan 2024",
   },
   {
     title: "Software Developer (Part-time)",
@@ -60,7 +60,7 @@ export const experiencesData = [
     description:
       "Part-time Software Developer at Timescan Logistics India for 9 months. Developing and maintaing custom CRM solutions.",
     icon: React.createElement(CgWorkAlt),
-    date: "Mar 2023 - Present",
+    date: "Dec 2022 - December 2023",
   },
   {
     title: "Software Developer (Part-time)",
@@ -70,6 +70,14 @@ export const experiencesData = [
       "Part-time Software Developer at Upmarkt for 5 months. Currently revamping the existing e-commerce website using the T3 stack.",
     date: "Jul 2023 - Present",
   },
+  {
+    title: "Co-founder and CTO",
+    location: "England, United Kingdom (Remote)",
+    icon: React.createElement(CgWorkAlt),
+    description:
+      "Co-founded a startup called TraderMetrics. Currently developing a trade journaling and portfolio tracking platform to analyze and improve your trades.",
+    date: "Jan 2024 - Present",
+  }
 ] as const;
 
 export const projectsData = [
