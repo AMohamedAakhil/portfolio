@@ -8,6 +8,7 @@ import studybuddyImg from "@/public/studybuddy.png";
 import reelsgptImg from "@/public/reelsGPT.jpg";
 import timescanCRMImg from "@/public/timescanCRM.png";
 import rgaiImg from "@/public/rgai.png";
+import traderMetricsImg from "@/public/traderMetrics.png";
 
 export const links = [
   {
@@ -72,6 +73,12 @@ export const experiencesData = [
 ] as const;
 
 export const projectsData = [
+  {
+    title: "TraderMetrics (Current WIP)",
+    description: "A trade journaling and portfolio tracking platform to analyze and improve your trades.",
+    tags: ["Next.js", "tRPC", "Tailwind", "Prisma", "MySQL", "LLMs"],
+    imageUrl: traderMetricsImg,
+  },
   {
     title: "GenRG",
     description: "A project that utilizes SDXL LoRA to generate content for Rahul Gandhi. Made for the internship under Brighter India",
